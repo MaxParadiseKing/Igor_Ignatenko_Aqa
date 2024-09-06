@@ -1,190 +1,193 @@
 
         public class Main {
-            public static void main (String[]args){
-                        printThreeWords();  //Q1
-                        checkSumSign();     //Q2
-                        printColor();       //Q3
-                        compareNumbers();   //Q4
+            public static void main(String[] args) {
+                // задание №1
+                Dog dog = new Dog();
+                Cat cat = new Cat();
 
-                        //Q5
-                        int num1 = 5;
-                        int num2 = 7;
-                        System.out.println(checkSumInRange(num1, num2));
+                cat.eat(5); // Cat eats from bowl
+                cat.eat(15); // Cat tries to eat more than available in bowl
 
-                        //Q6
-                        checkPositiveOrNegative(-5);
+                Cat[] cats = new Cat[3];
+                Bowl bowl = new Bowl();
+                bowl.addFood(20);
 
-                        //Q7
-                        int number = 10;
-                        boolean isNegative = isNegativeNumber(number);
-                        System.out.println(isNegative);
+                for (int i = 0; i < cats.length; i++) {
+                    cats[i] = new Cat();
+                    boolean catAte = cats[i].eat(10);
+                    if (catAte) {
+                        System.out.println("Cat " + (i + 1) + " is full");
+                    } else {
+                        System.out.println("Cat " + (i + 1) + " is still hungry");
+                    }
+                }
 
-                        //Q8
-                        printStringNTimes("Hello, world!", 3);
+                // задание №2
+                Circle circle = new Circle(5);
+                circle.setFillColor("Red");
+                circle.setBorderColor("Black");
+                System.out.println("Circle - Area: " + circle.calculateArea() + ", Perimeter: " + circle.calculatePerimeter() + ", Fill Color: " + circle.fillColor + ", Border Color: " + circle.borderColor);
 
-                        //Q9
-                        int year1 = 2020;
-                        int year2 = 1900;
-                        System.out.println(isLeapYear(year1));
-                        System.out.println(isLeapYear(year2));
+                Rectangle rectangle = new Rectangle(4, 6);
+                rectangle.setFillColor("Blue");
+                rectangle.setBorderColor("Green");
+                System.out.println("Rectangle - Area: " + rectangle.calculateArea() + ", Perimeter: " + rectangle.calculatePerimeter() + ", Fill Color: " + rectangle.fillColor + ", Border Color: " + rectangle.borderColor);
 
-                        //Q10
-                        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+                Triangle triangle = new Triangle(3, 4, 5);
+                triangle.setFillColor("Yellow");
+                triangle.setBorderColor("Purple");
+                System.out.println("Triangle - Area: " + triangle.calculateArea() + ", Perimeter: " + triangle.calculatePerimeter() + ", Fill Color: " + triangle.fillColor + ", Border Color: " + triangle.borderColor);
 
-                        System.out.println("Исходный массив:");
-                        printArray(arr);
-
-                        // Заменяем 0 на 1 и 1 на 0
-                        for (int i = 0; i < arr.length; i++) {
-                            if (arr[i] == 0) {
-                                arr[i] = 1;
-                            } else if (arr[i] == 1) {
-                                arr[i] = 0;
-                            }
-                        }
-
-                        System.out.println("Массив после замены:");
-                        printArray(arr);
-
-                        //Q11
-                        int[] ann = new int[100];
-                        for (int i = 0; i < 100; i++) {
-                            ann[i] = i + 1;
-                        }
-                        System.out.println("Заполненный массив:");
-                        printArray11(ann);
-
-                        //Q12
-                        int[] aii = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-                        System.out.println("Исходный массив:");
-                        printArray12(aii);
-
-                        for (int i = 0; i < arr.length; i++) {
-                            if (aii[i] < 6) {
-                                aii[i] *= 2;
-                            }
-                        }
-
-                        System.out.println("Массив после обработки:");
-                        printArray12(aii);
-
-                        // Q13
-                        int n = 5;
-                        int[][] matrix = new int[n][n];
-
-                        for (int i = 0; i < n; i++) {
-                            matrix[i][i] = 1;
-                        }
-
-                        // Выводим массив на экран
-                        for (int i = 0; i < n; i++) {
-                            for (int j = 0; j < n; j++) {
-                                System.out.print(matrix[i][j] + " ");
-                            }
-                            System.out.println();
-                        }
-
-                        //Q14
-                int len = 5; // Длина массива
-                int initialValue = 10; // Начальное значение ячеек
-
-                // Вызов метода и сохранение результата в переменную
-                int[] resultArray = ArrayInitializer.initializeArray(len, initialValue);
-
-                // Вывод результирующего массива на экран
-                for (int num : resultArray) {
-                    System.out.println(num);
-                } 
             }
+        }
+        // задание №1
 
-            public static void printThreeWords() {
-                System.out.println("Orange");
-                System.out.println("Banana");
-                System.out.println("Apple");
-            }
+        class Animal {
+            int runLimit;
+            int swimLimit;
 
-            public static void checkSumSign() {
-                int a = -10, b = 3;
-                if (a + b >= 0) {
-                    System.out.println("Сумма положительная");
+            public void run(int distance) {
+                if (distance <= runLimit) {
+                    System.out.println("Animal ran " + distance + " meters");
                 } else {
-                    System.out.println("Сумма отрицательная");
+                    System.out.println("Animal can't run that far");
                 }
             }
 
-            public static void printColor() {
-                int value = 115;
-                if (value <= 0) {
-                    System.out.println("Красный");
-                } else if (value > 0 && value <= 100) {
-                    System.out.println("Желтый");
+            public void swim(int distance) {
+                if (distance <= swimLimit) {
+                    System.out.println("Animal swam " + distance + " meters");
                 } else {
-                    System.out.println("Зеленый");
+                    System.out.println("Animal can't swim that far");
                 }
             }
+        }
 
-            public static void compareNumbers() {
-                int a = 10, b = 100;
-                if (a >= b) {
-                    System.out.println("a>=b");
-                } else {
-                    System.out.println("a<b");
-                }
+        class Dog extends Animal {
+            Dog() {
+                runLimit = 500;
+                swimLimit = 10;
+            }
+        }
+
+        class Cat extends Animal {
+            Cat() {
+                runLimit = 200;
+                swimLimit = 0;
             }
 
-            public static boolean checkSumInRange(int a, int b) {
-                int sum = a + b;
-                return sum >= 10 && sum <= 20;
-            }
-
-            public static void checkPositiveOrNegative(int number) {
-                if (number >= 0) {
-                    System.out.println("Положительное число");
-                } else {
-                    System.out.println("Отрицательное число");
-                }
-            }
-
-            public static boolean isNegativeNumber(int number) {
-                return number < 0;
-            }
-
-            public static void printStringNTimes(String str, int n) {
-                for (int i = 0; i < n; i++) {
-                    System.out.println(str);
-                }
-            }
-
-            public static boolean isLeapYear(int year) {
-                if (year % 400 == 0) {
-                    return true;
-                } else if (year % 100 == 0) {
+            public boolean eat(int foodAmount) {
+                if (foodAmount <= 0) {
                     return false;
-                } else if (year % 4 == 0) {
-                    return true;
                 } else {
-                    return false;
+                    return true;
                 }
             }
+        }
 
-            public static void printArray(int[] arr) {
-                for (int i : arr) {
-                    System.out.print(i + " ");
-                }
-                System.out.println();
+        class Bowl {
+            int foodAmount;
+
+            public void addFood(int amount) {
+                foodAmount += amount;
+            }
+        }
+
+        // задание №2
+
+        class Circle implements Shape {
+            private double radius;
+            String fillColor;
+            String borderColor;
+
+            Circle(double radius) {
+                this.radius = radius;
             }
 
-            public static void printArray11(int[] ann) {
-                for (int i : ann) {
-                    System.out.print(i + " ");
-                }
-                System.out.println();
+            @Override
+            public double calculateArea() {
+                return Math.PI * radius * radius;
             }
 
-            public static void printArray12(int[] aii) {
-                for (int i : aii) {
-                    System.out.print(i + " ");
-                }
-                System.out.println();
+            @Override
+            public double calculatePerimeter() {
+                return 2 * Math.PI * radius;
+            }
+
+            @Override
+            public void setFillColor(String color) {
+                this.fillColor = color;
+            }
+
+            @Override
+            public void setBorderColor(String color) {
+                this.borderColor = color;
+            }
+        }
+
+        class Rectangle implements Shape {
+            private double length;
+            private double width;
+            String fillColor;
+            String borderColor;
+
+            Rectangle(double length, double width) {
+                this.length = length;
+                this.width = width;
+            }
+
+            @Override
+            public double calculateArea() {
+                return length * width;
+            }
+
+            @Override
+            public double calculatePerimeter() {
+                return 2 * (length + width);
+            }
+
+            @Override
+            public void setFillColor(String color) {
+                this.fillColor = color;
+            }
+
+            @Override
+            public void setBorderColor(String color) {
+                this.borderColor = color;
+            }
+        }
+
+        class Triangle implements Shape {
+            private double side1;
+            private double side2;
+            private double side3;
+            String fillColor;
+            String borderColor;
+
+            Triangle(double side1, double side2, double side3) {
+                this.side1 = side1;
+                this.side2 = side2;
+                this.side3 = side3;
+            }
+
+            @Override
+            public double calculateArea() {
+                double s = (side1 + side2 + side3) / 2;
+                return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+            }
+
+            @Override
+            public double calculatePerimeter() {
+                return side1 + side2 + side3;
+            }
+
+            @Override
+            public void setFillColor(String color) {
+                this.fillColor = color;
+            }
+
+            @Override
+            public void setBorderColor(String color) {
+                this.borderColor = color;
             }
         }
