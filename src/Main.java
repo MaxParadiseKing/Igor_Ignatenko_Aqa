@@ -1,190 +1,85 @@
+// 1) Создать массив Java с набором слов (10-20 слов, должны вотречаться повторяющиеся). Найти и вывести список уникальных слов, из которых состоит массив (дубликаты не считаем). Посчитать сколько раз встречается каждое слово. (реализовать с использованием коллекций)
+// 2) Написать в Java простой класс Телефонный Справочник, который хранит в себе список фамилий и телефонных номеров. В этот телефонный оправочник с помощью метода add() можно добавлять записи, а с помощью метода gt() искать номер телефона по фамилии. Следует
+//• учесть, что под одной фамилией может быть несколько телефонов (в случае однофамильцев), тогда при запросе такой фамилии должны выводиться все телефоны.
+import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
-        public class Main {
-            public static void main (String[]args){
-                        printThreeWords();  //Q1
-                        checkSumSign();     //Q2
-                        printColor();       //Q3
-                        compareNumbers();   //Q4
+// #2
 
-                        //Q5
-                        int num1 = 5;
-                        int num2 = 7;
-                        System.out.println(checkSumInRange(num1, num2));
+class PhoneDirectory {
+    private Map<String, Set<String>> directory; // Map to store surnames and phone numbers
 
-                        //Q6
-                        checkPositiveOrNegative(-5);
+    public PhoneDirectory() {
+        directory = new HashMap<>();
+    }
 
-                        //Q7
-                        int number = 10;
-                        boolean isNegative = isNegativeNumber(number);
-                        System.out.println(isNegative);
-
-                        //Q8
-                        printStringNTimes("Hello, world!", 3);
-
-                        //Q9
-                        int year1 = 2020;
-                        int year2 = 1900;
-                        System.out.println(isLeapYear(year1));
-                        System.out.println(isLeapYear(year2));
-
-                        //Q10
-                        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-
-                        System.out.println("Исходный массив:");
-                        printArray(arr);
-
-                        // Заменяем 0 на 1 и 1 на 0
-                        for (int i = 0; i < arr.length; i++) {
-                            if (arr[i] == 0) {
-                                arr[i] = 1;
-                            } else if (arr[i] == 1) {
-                                arr[i] = 0;
-                            }
-                        }
-
-                        System.out.println("Массив после замены:");
-                        printArray(arr);
-
-                        //Q11
-                        int[] ann = new int[100];
-                        for (int i = 0; i < 100; i++) {
-                            ann[i] = i + 1;
-                        }
-                        System.out.println("Заполненный массив:");
-                        printArray11(ann);
-
-                        //Q12
-                        int[] aii = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-                        System.out.println("Исходный массив:");
-                        printArray12(aii);
-
-                        for (int i = 0; i < arr.length; i++) {
-                            if (aii[i] < 6) {
-                                aii[i] *= 2;
-                            }
-                        }
-
-                        System.out.println("Массив после обработки:");
-                        printArray12(aii);
-
-                        // Q13
-                        int n = 5;
-                        int[][] matrix = new int[n][n];
-
-                        for (int i = 0; i < n; i++) {
-                            matrix[i][i] = 1;
-                        }
-
-                        // Выводим массив на экран
-                        for (int i = 0; i < n; i++) {
-                            for (int j = 0; j < n; j++) {
-                                System.out.print(matrix[i][j] + " ");
-                            }
-                            System.out.println();
-                        }
-
-                        //Q14
-                int len = 5; // Длина массива
-                int initialValue = 10; // Начальное значение ячеек
-
-                // Вызов метода и сохранение результата в переменную
-                int[] resultArray = ArrayInitializer.initializeArray(len, initialValue);
-
-                // Вывод результирующего массива на экран
-                for (int num : resultArray) {
-                    System.out.println(num);
-                } 
-            }
-
-            public static void printThreeWords() {
-                System.out.println("Orange");
-                System.out.println("Banana");
-                System.out.println("Apple");
-            }
-
-            public static void checkSumSign() {
-                int a = -10, b = 3;
-                if (a + b >= 0) {
-                    System.out.println("Сумма положительная");
-                } else {
-                    System.out.println("Сумма отрицательная");
-                }
-            }
-
-            public static void printColor() {
-                int value = 115;
-                if (value <= 0) {
-                    System.out.println("Красный");
-                } else if (value > 0 && value <= 100) {
-                    System.out.println("Желтый");
-                } else {
-                    System.out.println("Зеленый");
-                }
-            }
-
-            public static void compareNumbers() {
-                int a = 10, b = 100;
-                if (a >= b) {
-                    System.out.println("a>=b");
-                } else {
-                    System.out.println("a<b");
-                }
-            }
-
-            public static boolean checkSumInRange(int a, int b) {
-                int sum = a + b;
-                return sum >= 10 && sum <= 20;
-            }
-
-            public static void checkPositiveOrNegative(int number) {
-                if (number >= 0) {
-                    System.out.println("Положительное число");
-                } else {
-                    System.out.println("Отрицательное число");
-                }
-            }
-
-            public static boolean isNegativeNumber(int number) {
-                return number < 0;
-            }
-
-            public static void printStringNTimes(String str, int n) {
-                for (int i = 0; i < n; i++) {
-                    System.out.println(str);
-                }
-            }
-
-            public static boolean isLeapYear(int year) {
-                if (year % 400 == 0) {
-                    return true;
-                } else if (year % 100 == 0) {
-                    return false;
-                } else if (year % 4 == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-
-            public static void printArray(int[] arr) {
-                for (int i : arr) {
-                    System.out.print(i + " ");
-                }
-                System.out.println();
-            }
-
-            public static void printArray11(int[] ann) {
-                for (int i : ann) {
-                    System.out.print(i + " ");
-                }
-                System.out.println();
-            }
-
-            public static void printArray12(int[] aii) {
-                for (int i : aii) {
-                    System.out.print(i + " ");
-                }
-                System.out.println();
-            }
+    public void add(String surname, String phoneNumber) {
+        if (directory.containsKey(surname)) {
+            // Add new phone number to existing surname
+            Set<String> phoneNumbers = directory.get(surname);
+            phoneNumbers.add(phoneNumber);
+        } else {
+            // Add new entry for surname with phone number
+            Set<String> phoneNumbers = new HashSet<>();
+            phoneNumbers.add(phoneNumber);
+            directory.put(surname, phoneNumbers);
         }
+    }
+
+    public Set<String> get(String surname) {
+        return directory.get(surname);
+    }
+
+    public static class Main {
+            public static void main (String[]args){
+
+                // #1
+
+                String[] wordsArray = {"apple", "banana", "orange", "apple", "grape", "banana", "kiwi", "pear", "orange", "apple", "kiwi"};
+
+                Map<String, Integer> wordCountMap = new HashMap<>();
+
+                for (String word : wordsArray) {
+                    if (wordCountMap.containsKey(word)) {
+                        // Increment count if word already exists in the map
+                        wordCountMap.put(word, wordCountMap.get(word) + 1);
+                    } else {
+                        // Add word to the map with count as 1 if it's a new word
+                        wordCountMap.put(word, 1);
+                    }
+                }
+
+                Set<String> uniqueWords = wordCountMap.keySet();
+
+                System.out.println("List of unique words:");
+                for (String uniqueWord : uniqueWords) {
+                    System.out.println(uniqueWord);
+                }
+
+                System.out.println("\nWord count:");
+                for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
+                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                }
+
+                // #2
+
+                PhoneDirectory phoneDirectory = new PhoneDirectory();
+
+                // Adding entries to the phone directory
+                phoneDirectory.add("Smith", "1234567890");
+                phoneDirectory.add("Johnson", "9876543210");
+                phoneDirectory.add("Smith", "5555555555");
+
+                // Getting phone numbers for a surname
+                System.out.println("Phone numbers for Smith:");
+                Set<String> smithPhones = phoneDirectory.get("Smith");
+                for (String phone : smithPhones) {
+                    System.out.println(phone);
+                }
+            }
+    }
+}
+
+
