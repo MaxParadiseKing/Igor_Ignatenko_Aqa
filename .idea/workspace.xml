@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="236295fc-0278-482a-8903-5a95ca93a82d" name="Changes" comment="First04" />
+    <list default="true" id="236295fc-0278-482a-8903-5a95ca93a82d" name="Changes" comment="First04">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +56,11 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "LissonAQA__05__L11",
     "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "C:/Users/igori/IdeaProjects/Igor_ignatenko/src/Main.java"
+    "onboarding.tips.debug.path": "C:/Users/igori/IdeaProjects/Igor_ignatenko/src/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager" selected="Application.PhoneDirectory$Main">
