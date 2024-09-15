@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="au.dius.pact.jvm.consumer.junit5" level="project" />
+    <orderEntry type="library" name="tesults.testng" level="project" />
   </component>
 </module>
